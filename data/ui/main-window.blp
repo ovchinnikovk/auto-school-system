@@ -2,16 +2,16 @@ using Gtk 4.0;
 using Adw 1;
 
 template $MainWindow : Adw.ApplicationWindow {
-    title: "MainWindow";
+    title: "AutoSchule";
 
-    Adw.HeaderBar {
-        show-back-button: true;
-        show-end-title-buttons: true;
-        show-title: true;
-    }
-
-    Adw.NavigationView nav_view {
-        $MainPage {}
+    Stack main_stack {
+        StackPage {
+            name: "login_page";
+            child: $LoginPage {};
+        }
+        StackPage {
+            name: "main_page";
+            child: $MainPage {};
+        }
     }
 }
-

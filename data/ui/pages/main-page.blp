@@ -1,13 +1,8 @@
 using Gtk 4.0;
 using Adw 1;
 
-template $MainPage : Adw.NavigationPage {
-    tag: "MainPage";
-    title: "MainPage";
+template $MainPage : Adw.Bin {
+    Stack role_stack {
 
-    Adw.HeaderBar {
-        show-back-button: true;
-        show-end-title-buttons: true;
-        show-title: true;
     }
 }

@@ -1,4 +1,4 @@
 subdir('network')
 sources += files(
-    'webcam-manager.vala'
+    'user-manager.vala'
 )

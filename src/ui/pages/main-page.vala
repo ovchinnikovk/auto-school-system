@@ -1,2 +1,3 @@
 [GtkTemplate (ui = "/org/gtk/AutoSchoolSystem/main-page.ui")]
-public class MainPage : Adw.NavigationPage {}
+public class MainPage : Adw.Bin {
+}

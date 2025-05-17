@@ -1,9 +1,9 @@
-public unowned Adw.NavigationView main_nav;
+public static unowned Gtk.Stack stack;
 
 [GtkTemplate (ui = "/org/gtk/AutoSchoolSystem/main-window.ui")]
 public class MainWindow : Adw.ApplicationWindow {
     [GtkChild]
-    private unowned Adw.NavigationView nav_view;
+    private unowned Gtk.Stack main_stack;
 
     public MainWindow(Gtk.Application app) {
         Object(application: app);
@@ -12,11 +12,11 @@ public class MainWindow : Adw.ApplicationWindow {
     }
 
     construct {
-        main_nav = nav_view;
+        stack = main_stack;
     }
 
     public static void ensure_types() {
         typeof(MainPage).ensure();
-        typeof(TextField).ensure();
+        typeof(LoginPage).ensure();
     }
 }

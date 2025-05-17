@@ -1,11 +1,14 @@
-public class Example : Adw.Application {
+public static Network network;
+public static Settings settings;
+
+public class AutoSchule : Adw.Application {
     public MainWindow main_window;
 
-    private static Example _instance;
-    public static Example instance {
+    private static AutoSchule _instance;
+    public static AutoSchule instance {
         get {
             if (_instance == null)
-                _instance = new Example();
+                _instance = new AutoSchule();
 
             return _instance;
         }
@@ -14,6 +17,9 @@ public class Example : Adw.Application {
     construct {
         application_id = "org.gtk.AutoSchoolSystem";
         flags = ApplicationFlags.DEFAULT_FLAGS;
+        settings = new Settings(application_id);
+        message(settings.get_string("host"));
+        network = new Network.with_base_url(settings.get_string("host"));
     }
 
     public override void activate() {
@@ -29,7 +35,7 @@ public class Example : Adw.Application {
     }
 
     public static int main(string[] args) {
-        var app = Example.instance;
+        var app = AutoSchule.instance;
         return app.run(args);
     }
 }

@@ -9,6 +9,8 @@ sources = files(
     'app.vala',
 )
 
+subdir('models')
+subdir('services')
 subdir('ui')
 
 app = executable(
