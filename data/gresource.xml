@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+    <gresource prefix="/org/gtk/AutoSchoolSystem">
+        <!-- Styles -->
+        <file alias="style.css">styles/style.css</file>
+        <!-- Interface -->
+        <file alias="main-window.ui" preprocess="xml-stripblanks">ui/main-window.ui</file>
+        <!-- Pages -->
+        <file alias="main-page.ui" preprocess="xml-stripblanks">ui/pages/main-page.ui</file>
+        <!-- Widgets -->
+        <file alias="text-field.ui" preprocess="xml-stripblanks">ui/widgets/text-field.ui</file>
+        <!-- Images -->
+        <!-- Videos -->
+    </gresource>
+</gresources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <schemalist>
+        <schema path="/org/gtk/OlodimBook/" id="org.gtk.AutoSchoolSystem">
+            <key name="host" type='s'>
+                <default>"https://admin-auto-schule.ru"</default>
+                <summary>Server host</summary>
+            </key>
+        </schema>
+    </schemalist>
+

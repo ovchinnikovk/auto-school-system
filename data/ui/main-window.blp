@@ -1,0 +1,17 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $MainWindow : Adw.ApplicationWindow {
+    title: "MainWindow";
+
+    Adw.HeaderBar {
+        show-back-button: true;
+        show-end-title-buttons: true;
+        show-title: true;
+    }
+
+    Adw.NavigationView nav_view {
+        $MainPage {}
+    }
+}
+

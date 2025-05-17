@@ -1,0 +1,21 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $TextField : Box {
+    orientation: horizontal;
+
+    Label text {
+        use-markup: true;
+    }
+
+    Adw.Bin blink {
+        width-request: 2;
+        visible: bind template.checked;
+
+        styles [ "blinking" ]
+    }
+
+    GestureClick {
+        released => $focus();
+    }
+}
