@@ -9,6 +9,7 @@ sources = files(
     'app.vala',
 )
 
+subdir('data')
 subdir('models')
 subdir('services')
 subdir('ui')

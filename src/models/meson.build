@@ -1,3 +1,3 @@
 sources += files(
-    'user-model.vala'
+    'user-model.vala',
 ) 

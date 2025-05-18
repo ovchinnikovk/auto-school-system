@@ -9,8 +9,31 @@ public class UserManager : Object {
         }
     }
 
-    private string? token;
-    public User? me { get; set; }
+    public signal void error_authentication(string error);
+    public signal void user_loaded();
+
+    public async void get_me(string email, string password) {
+        try {
+            var token = yield get_token(email, password);
+
+            if (token == null)
+                return;
+
+            var req = new Request.GET("/api/me")
+            .with_token(token);
+
+            yield req.await();
+
+            var node = Network
+            .get_parser_from_inputstream(req.response_body)
+            .get_root();
+
+            UserRepository.instance.me = (User)Json.gobject_deserialize (typeof(User), node);
+            user_loaded();
+        } catch (Error e) {
+            critical(@"Error get me: $(e.message)");
+        }
+    }
 
     public async string? get_token(string email, string password) {
         var builder = new Json.Builder();
@@ -31,11 +54,29 @@ public class UserManager : Object {
             req.response_body.read(buffer);
             message(@"user_manager_get_token response body: $((string)buffer)");
 
-            return (string)buffer;
+            var regex = /token"\s*:\s*"([a-zA-Z0-9_\-]+\.[a-zA-Z0-9_\-]+\.[a-zA-Z0-9_\-]*)/;
+            MatchInfo? info;
+            regex.match((string)buffer, RegexMatchFlags.DEFAULT, out info);
+            var token = info.fetch(1);
+
+            return token;
         } catch (Error e) {
             critical(@"Error get token: $(e.message)");
+
+            handle_error_token(e.message);
         }
 
         return null;
+    }
+
+    private void handle_error_token(string token) {
+        switch (token) {
+            case "Unauthorized":
+                error_authentication("Пользователь не найден");
+                break;
+            case "Bad Request":
+                error_authentication("Заполните все поля");
+                break;
+        }
     }
 }

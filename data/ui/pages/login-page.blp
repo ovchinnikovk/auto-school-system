@@ -14,6 +14,7 @@ template $LoginPage : Adw.Bin {
 
         Label {
             label: "Вход";
+            styles ["header-text"]
         }
 
         Box {
@@ -36,6 +37,16 @@ template $LoginPage : Adw.Bin {
             label: "Войти";
 
             clicked => $enter();
+        }
+
+        Revealer error_revealer {
+            reveal-child: false;
+            transition-type: slide_up;
+
+            Label error_label {
+                label: bind template.error;
+                css-name: "error-label";
+            }
         }
     }
 }
