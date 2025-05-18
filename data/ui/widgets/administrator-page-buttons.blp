@@ -1,0 +1,17 @@
+using Gtk 4.0;
+
+template $AdministratorPageButtons : Box {
+    orientation: vertical;
+    ToggleButton group_button {
+        name: "all_users_page";
+        label: "Пользователи";
+        toggled => $switch_page();
+    }
+
+    ToggleButton add_user {
+        name: "add_user_page";
+        label: "Добавить пользователя";
+        group: group_button;
+        toggled => $switch_page();
+    }
+}     

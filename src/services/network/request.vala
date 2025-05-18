@@ -110,7 +110,6 @@ public class Request : GLib.Object {
 	}
 
 	public Request with_token(string token) {
-        message("use");
         use_auth = true;
         this.token = token;
         return this;

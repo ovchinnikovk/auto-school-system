@@ -1,0 +1,31 @@
+using Gtk 4.0;
+
+template $StudentPageButtons : Box {
+    orientation: vertical;
+    ToggleButton group_button {
+        name: "courses_page";
+        label: "Курсы";
+        toggled => $switch_page();
+    }
+
+    ToggleButton {
+        name: "driving_record_page";
+        label: "Записи на вождение";
+        group: group_button;
+        toggled => $switch_page();
+    }
+
+    ToggleButton {
+        name: "tests_page";
+        label: "Билеты";
+        group: group_button;
+        toggled => $switch_page();
+    }
+
+    ToggleButton {
+        name: "profile_page";
+        label: "Личный кабинет";
+        group: group_button;
+        toggled => $switch_page();
+    }
+}

@@ -10,7 +10,24 @@ public class UserManager : Object {
     }
 
     public signal void error_authentication(string error);
-    public signal void user_loaded();
+
+    public async Gee.ArrayList<User>? get_users() {
+        try {
+            var req = new Request.GET("/api/users");
+
+            yield req.await();
+
+            var node = Network
+            .get_parser_from_inputstream(req.response_body)
+            .get_root();
+
+            return try_deserialize_array<User>(typeof(User), node);
+        } catch (Error e) {
+            critical(@"Error get all users: $(e.message)");
+        }
+
+        return null;
+    }
 
     public async void get_me(string email, string password) {
         try {
@@ -27,12 +44,27 @@ public class UserManager : Object {
             var node = Network
             .get_parser_from_inputstream(req.response_body)
             .get_root();
-
             UserRepository.instance.me = (User)Json.gobject_deserialize (typeof(User), node);
-            user_loaded();
+            UserRepository.instance.user = yield get_user_by_id(UserRepository.instance.me.id);
         } catch (Error e) {
             critical(@"Error get me: $(e.message)");
         }
+    }
+
+    public async User? get_user_by_id(int id) {
+        try {
+            var req = new Request.GET(@"/api/users/$(id)");
+            yield req.await();
+
+            var node = Network
+            .get_parser_from_inputstream(req.response_body)
+            .get_root();
+
+            return (User)Json.gobject_deserialize (typeof(User), node);
+        } catch (Error e) {
+            critical(@"Error get user: $(e.message)");
+        }
+        return null;
     }
 
     public async string? get_token(string email, string password) {

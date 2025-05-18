@@ -1,0 +1,17 @@
+using Gtk 4.0;
+
+template $TeacherPageButtons : Box {
+    orientation: vertical;
+    ToggleButton group_button {
+        name: "courses_page";
+        label: "Курсы";
+        toggled => $switch_page();
+    }
+
+    ToggleButton {
+        name: "add_course_page";
+        label: "Добавить курс";
+        group: group_button;
+        toggled => $switch_page();
+    }
+}

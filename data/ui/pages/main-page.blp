@@ -2,7 +2,33 @@ using Gtk 4.0;
 using Adw 1;
 
 template $MainPage : Adw.Bin {
-    Stack role_stack {
+    Box {
+        Adw.NavigationSplitView {
+            sidebar: Adw.NavigationPage {
+                Stack button_stack {
+                    StackPage {
+                        name: "ROLE_STUDENT";
+                        child: $StudentPageButtons {};
+                    }
+                    StackPage {
+                        name: "ROLE_TEACHER";
+                        child: $TeacherPageButtons {};
+                    }
+                    StackPage {
+                        name: "ROLE_INSTRUCTOR";
+                        child: $InstructorPageButtons {};
+                    }
+                    StackPage {
+                        name: "ROLE_ADMIN";
+                        child: $AdministratorPageButtons {};
+                    }
+                }
+            };
 
+            content: Adw.NavigationPage {
+                Stack pages_stack {
+                }
+            };
+        }
     }
 }

@@ -1,0 +1,16 @@
+using Gtk 4.0;
+
+template $InstructorPageButtons : Box {
+    orientation: vertical;
+    ToggleButton group_button {
+        name: "driving_records_page";
+        label: "Записи на вождение";
+        toggled => $switch_page();
+    }
+    ToggleButton {
+        name: "add_shedule";
+        label: "Добавить расписание";
+        group: group_button;
+        toggled => $switch_page();
+    }
+}

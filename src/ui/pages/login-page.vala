@@ -22,7 +22,7 @@ public class LoginPage : Adw.Bin {
             Timeout.add_once(3000, reveal_error);
         });
 
-        UserManager.instance.user_loaded.connect(() => {
+        UserRepository.instance.user_loaded.connect(() => {
             stack.visible_child_name = "main_page";
         });
     }

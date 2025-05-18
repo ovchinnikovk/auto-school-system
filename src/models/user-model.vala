@@ -63,7 +63,7 @@ public class Lesson : Object
     public string description { get; set; }
     public string types { get; set; }
     public string teacher { get; set; }
-    public DateTime? date { get; set; }
+    public string? date { get; set; }
     public Gee.ArrayList<Video> videos { get; set; }
     public int? orderNumber { get; set; }
 }
@@ -77,21 +77,21 @@ public class Review : Object
 
 public class User : Object
 {
-    public int? id { get; set; }
+    public int id { get; set; }
     public string name { get; set; }
     public string surname { get; set; }
     public string patronym { get; set; }
     public string phone { get; set; }
     public string email { get; set; }
     public string telegramId { get; set; }
-    public DateTime? dateOfBirth { get; set; }
+    public string? dateOfBirth { get; set; }
     public string contract { get; set; }
     public bool? examStatus { get; set; }
     public string license { get; set; }
     public int? experience { get; set; }
-    public DateTime? hireDate { get; set; }
-    public DateTime? enrollDate { get; set; }
-    public Gee.ArrayList<string> roles { get; set; }
+    public string? hireDate { get; set; }
+    public string? enrollDate { get; set; }
+    public Gee.ArrayList<string?>? roles { get; set; }
     public bool? is_active { get; set; }
     public bool? is_approved { get; set; }
     public string aboutMe { get; set; }
@@ -108,3 +108,4 @@ public class Video : Object
     public int? id { get; set; }
     public string video { get; set; }
 }
+
