@@ -1,38 +1,46 @@
 using Gtk 4.0;
 using Adw 1;
 
-template $UserCard : Gtk.ToggleButton {
+template $UserCard : Gtk.Box {
     vexpand: true;
     hexpand: true;
 
     Box {
-        spacing: 20;
+        orientation: vertical;
+        spacing: 10;
 
-        $AsyncImage {
-            bytes: bind template.bytes;
-        }
+        ToggleButton {
+            hexpand: true;
+            group: bind template.group;
 
-        Box {
-            spacing: 10;
+            $AsyncImage {
+                bytes: bind template.bytes;
+            }
 
-            Label {
-                label: bind template.name;
+            Box {
+                spacing: 10;
+
+                Label {
+                    label: bind template.name;
+                }
+                Label {
+                    label: bind template.surname;
+                }
+                Label {
+                    label: bind template.patronymic;
+                }
             }
-            Label {
-                label: bind template.surname;
-            }
-            Label {
-                label: bind template.patronymic;
-            }
+
+            toggled => $reveal();
         }
 
         Revealer revealer {
-            reveal-child: false;
             transition-type: slide_up;
 
             Box {
                 orientation: vertical;
                 spacing: 10;
+                styles["user-card-box"]
 
                 $NamedLabel {
                     name: "Номер телефона: ";

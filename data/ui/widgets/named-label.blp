@@ -1,7 +1,10 @@
 using Gtk 4.0;
 using Adw 1;
 
-template $NamedLabel : Gtk.Widget {
+template $NamedLabel : Adw.Bin {
+    vexpand: true;
+    hexpand: true;
+
     Box {
         spacing: 10;
 

@@ -1,5 +1,5 @@
 [GtkTemplate (ui = "/org/gtk/AutoSchoolSystem/user-card.ui")]
-public class UserCard : Gtk.ToggleButton {
+public class UserCard : Gtk.Box {
     public Bytes bytes { get; set; }
     public string? name { get; set; }
     public string? surname { get; set; }
@@ -8,6 +8,7 @@ public class UserCard : Gtk.ToggleButton {
     public string? email { get; set; }
     public string? telegram_id { get; set; }
     public string? about_me { get; set; }
+    public Gtk.ToggleButton group { get; set; }
 
     [GtkChild]
     private unowned Gtk.Revealer revealer;
@@ -30,7 +31,8 @@ public class UserCard : Gtk.ToggleButton {
         this.about_me = about_me;
     }
 
-    public override void toggled() {
-        revealer.reveal_child = true;
+    [GtkCallback]
+    private async void reveal(Gtk.ToggleButton button) {
+        revealer.reveal_child = button.active;
     }
 }

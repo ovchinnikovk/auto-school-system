@@ -11,3 +11,9 @@ error-label {
 .header-text {
     font-size: 36px;
 }
+
+.user-card-box {
+    border: 1px solid grey;
+	padding: 5px;
+	border-radius: 20px;
+}

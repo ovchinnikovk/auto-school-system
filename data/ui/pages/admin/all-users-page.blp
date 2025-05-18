@@ -2,14 +2,23 @@ using Gtk 4.0;
 using Adw 1;
 
 template $AllUsersPage : Adw.Bin {
-    ScrolledWindow scroll {
-        vscrollbar-policy: always;
-        overlay-scrolling: false;
+    hexpand: true;
+    vexpand: true;
+
+    ScrolledWindow {
         hexpand: true;
         vexpand: true;
+        valign: center;
+        hscrollbar-policy: never;
+        propagate-natural-height: true;
 
-        ListBox cards_box {
+        Box cards_box {
+            hexpand: true;
+            vexpand: true;
+            spacing: 20;
+            orientation: vertical;
             halign: center;
+            valign: center;
         }
     }
 }
