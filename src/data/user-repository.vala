@@ -15,7 +15,6 @@ public class UserRepository : Object {
         set {
             _user = value;
             user_loaded(value);
-            message(value.roles[0]);
         }
     }
     public User? me { get; set; }

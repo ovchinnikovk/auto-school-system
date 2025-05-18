@@ -10,9 +10,8 @@ public class MainPage : Adw.Bin {
     construct {
         page_stack = this.pages_stack;
 
-        UserRepository.instance.user_loaded.connect(() => {
-            button_stack.visible_child_name =
-                UserRepository.instance.me.roles[0];
+        UserRepository.instance.user_loaded.connect((user) => {
+            button_stack.visible_child_name = user.roles[0];
         });
     }
 }

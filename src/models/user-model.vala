@@ -1,3 +1,31 @@
+public class User : Object
+{
+    public int id { get; set; }
+    public string? name { get; set; }
+    public string? surname { get; set; }
+    public string? patronym { get; set; }
+    public string? phone { get; set; }
+    public string? email { get; set; }
+    public string? telegramId { get; set; }
+    public string? dateOfBirth { get; set; }
+    public string? contract { get; set; }
+    public bool examStatus { get; set; }
+    public string? license { get; set; }
+    public int experience { get; set; }
+    public string? hireDate { get; set; }
+    public string? enrollDate { get; set; }
+    public Gee.ArrayList<string?>? roles { get; set; }
+    public bool is_active { get; set; }
+    public bool is_approved { get; set; }
+    public string? aboutMe { get; set; }
+    public Exam? exam { get; set; }
+    public Gee.ArrayList<Review?>? reviews { get; set; }
+    public Gee.ArrayList<Course?>? courses { get; set; }
+    public Car? car { get; set; }
+    public string? image { get; set; }
+    public Category? category { get; set; }
+}
+
 public class Answer : Object
 {
     public int? id { get; set; }
@@ -53,7 +81,7 @@ public class CourseQuiz : Object
 public class Exam : Object
 {
     public int? id { get; set; }
-    public DateTime? date { get; set; }
+    public string? date { get; set; }
 }
 
 public class Lesson : Object
@@ -73,34 +101,6 @@ public class Review : Object
     public int? id { get; set; }
     public string title { get; set; }
     public string description { get; set; }
-}
-
-public class User : Object
-{
-    public int id { get; set; }
-    public string name { get; set; }
-    public string surname { get; set; }
-    public string patronym { get; set; }
-    public string phone { get; set; }
-    public string email { get; set; }
-    public string telegramId { get; set; }
-    public string? dateOfBirth { get; set; }
-    public string contract { get; set; }
-    public bool? examStatus { get; set; }
-    public string license { get; set; }
-    public int? experience { get; set; }
-    public string? hireDate { get; set; }
-    public string? enrollDate { get; set; }
-    public Gee.ArrayList<string?>? roles { get; set; }
-    public bool? is_active { get; set; }
-    public bool? is_approved { get; set; }
-    public string aboutMe { get; set; }
-    public Exam exam { get; set; }
-    public Gee.ArrayList<Review> reviews { get; set; }
-    public Gee.ArrayList<Course> courses { get; set; }
-    public Car car { get; set; }
-    public string image { get; set; }
-    public Category category { get; set; }
 }
 
 public class Video : Object

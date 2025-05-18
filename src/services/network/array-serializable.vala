@@ -1,10 +1,14 @@
 public Gee.ArrayList<T> try_deserialize_array<T>(Type element_type, Json.Node property_node){
     var res = new Gee.ArrayList<T>();
-    foreach (var item in property_node
-        .get_array()
-        .get_elements()){
-        var obj = (T) Json.gobject_deserialize(element_type, item);
-        res.add(obj);
+    try {
+        foreach (var item in property_node
+            .get_array()
+            .get_elements()){
+            var obj = (T) Json.gobject_deserialize(element_type, item);
+            res.add(obj);
+        }
+    } catch (Error e) {
+        message(@"Error deserialize_array: $(e.message)");
     }
     return res;
 }
