@@ -2,15 +2,19 @@ using Gtk 4.0;
 
 template $InstructorPageButtons : Box {
     orientation: vertical;
+    spacing: 10;
+
     ToggleButton group_button {
         name: "driving_records_page";
         label: "Записи на вождение";
+        styles["role-button"]
         toggled => $switch_page();
     }
     ToggleButton {
         name: "add_shedule";
         label: "Добавить расписание";
         group: group_button;
+        styles["role-button"]
         toggled => $switch_page();
     }
 }

@@ -2,9 +2,12 @@ using Gtk 4.0;
 
 template $AdministratorPageButtons : Box {
     orientation: vertical;
+    spacing: 10;
+
     ToggleButton group_button {
         name: "all_users_page";
         label: "Пользователи";
+        styles["role-button"]
         toggled => $switch_page();
     }
 
@@ -12,6 +15,7 @@ template $AdministratorPageButtons : Box {
         name: "add_user_page";
         label: "Добавить пользователя";
         group: group_button;
+        styles["role-button"]
         toggled => $switch_page();
     }
 }     

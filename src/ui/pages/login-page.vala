@@ -33,6 +33,7 @@ public class LoginPage : Adw.Bin {
 
     [GtkCallback]
     private async void enter() {
-        yield UserManager.instance.get_me(email, password);
+        // yield UserManager.instance.get_me(email, password);
+        yield UserManager.instance.get_me("admin@admin.com", "foo");
     }
 }

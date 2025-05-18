@@ -1,0 +1,15 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $AllUsersPage : Adw.Bin {
+    ScrolledWindow scroll {
+        vscrollbar-policy: always;
+        overlay-scrolling: false;
+        hexpand: true;
+        vexpand: true;
+
+        ListBox cards_box {
+            halign: center;
+        }
+    }
+}

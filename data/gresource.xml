@@ -8,11 +8,14 @@
         <!-- Pages -->
         <file alias="main-page.ui" preprocess="xml-stripblanks">ui/pages/main-page.ui</file>
         <file alias="login-page.ui" preprocess="xml-stripblanks">ui/pages/login-page.ui</file>
+        <file alias="admin/all-users-page.ui" preprocess="xml-stripblanks">ui/pages/admin/all-users-page.ui</file>
         <!-- Widgets -->
         <file alias="teacher-page-buttons.ui" preprocess="xml-stripblanks">ui/widgets/teacher-page-buttons.ui</file>
         <file alias="student-page-buttons.ui" preprocess="xml-stripblanks">ui/widgets/student-page-buttons.ui</file>
         <file alias="administrator-page-buttons.ui" preprocess="xml-stripblanks">ui/widgets/administrator-page-buttons.ui</file>
         <file alias="instructor-page-buttons.ui" preprocess="xml-stripblanks">ui/widgets/instructor-page-buttons.ui</file>
+        <file alias="user-card.ui" preprocess="xml-stripblanks">ui/widgets/user-card.ui</file>
+        <file alias="named-label.ui" preprocess="xml-stripblanks">ui/widgets/named-label.ui</file>
         <!-- Images -->
         <!-- Videos -->
     </gresource>

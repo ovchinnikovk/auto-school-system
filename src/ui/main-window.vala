@@ -18,10 +18,14 @@ public class MainWindow : Adw.ApplicationWindow {
     public static void ensure_types() {
         typeof(MainPage).ensure();
         typeof(LoginPage).ensure();
+        typeof(AllUsersPage).ensure();
 
         typeof(StudentPageButtons).ensure();
         typeof(AdministratorPageButtons).ensure();
         typeof(TeacherPageButtons).ensure();
         typeof(InstructorPageButtons).ensure();
+        typeof(AsyncImage).ensure();
+        typeof(UserCard).ensure();
+        typeof(NamedLabel).ensure();
     }
 }

@@ -2,9 +2,12 @@ using Gtk 4.0;
 
 template $StudentPageButtons : Box {
     orientation: vertical;
+    spacing: 10;
+
     ToggleButton group_button {
         name: "courses_page";
         label: "Курсы";
+        styles["role-button"]
         toggled => $switch_page();
     }
 
@@ -12,6 +15,7 @@ template $StudentPageButtons : Box {
         name: "driving_record_page";
         label: "Записи на вождение";
         group: group_button;
+        styles["role-button"]
         toggled => $switch_page();
     }
 
@@ -19,6 +23,7 @@ template $StudentPageButtons : Box {
         name: "tests_page";
         label: "Билеты";
         group: group_button;
+        styles["role-button"]
         toggled => $switch_page();
     }
 
@@ -26,6 +31,7 @@ template $StudentPageButtons : Box {
         name: "profile_page";
         label: "Личный кабинет";
         group: group_button;
+        styles["role-button"]
         toggled => $switch_page();
     }
 }

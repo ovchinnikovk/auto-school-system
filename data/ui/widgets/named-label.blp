@@ -1,0 +1,15 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $NamedLabel : Gtk.Widget {
+    Box {
+        spacing: 10;
+
+        Label {
+            label: bind template.name;
+        }
+        Label {
+            label: bind template.text;
+        }
+    }
+}

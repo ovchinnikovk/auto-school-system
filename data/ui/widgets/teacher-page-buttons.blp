@@ -2,9 +2,12 @@ using Gtk 4.0;
 
 template $TeacherPageButtons : Box {
     orientation: vertical;
+    spacing: 10;
+
     ToggleButton group_button {
         name: "courses_page";
         label: "Курсы";
+        styles["role-button"]
         toggled => $switch_page();
     }
 
@@ -12,6 +15,7 @@ template $TeacherPageButtons : Box {
         name: "add_course_page";
         label: "Добавить курс";
         group: group_button;
+        styles["role-button"]
         toggled => $switch_page();
     }
 }

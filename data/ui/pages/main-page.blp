@@ -2,9 +2,17 @@ using Gtk 4.0;
 using Adw 1;
 
 template $MainPage : Adw.Bin {
+    hexpand: true;
+    vexpand: true;
+
     Box {
         Adw.NavigationSplitView {
+            hexpand: true;
+            vexpand: true;
             sidebar: Adw.NavigationPage {
+                hexpand: true;
+                vexpand: true;
+
                 Stack button_stack {
                     StackPage {
                         name: "ROLE_STUDENT";
@@ -26,7 +34,13 @@ template $MainPage : Adw.Bin {
             };
 
             content: Adw.NavigationPage {
+                hexpand: true;
+                vexpand: true;
                 Stack pages_stack {
+                    StackPage {
+                        name: "all_users_page";
+                        child: $AllUsersPage {};
+                    }
                 }
             };
         }

@@ -1,0 +1,56 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $UserCard : Gtk.ToggleButton {
+    vexpand: true;
+    hexpand: true;
+
+    Box {
+        spacing: 20;
+
+        $AsyncImage {
+            bytes: bind template.bytes;
+        }
+
+        Box {
+            spacing: 10;
+
+            Label {
+                label: bind template.name;
+            }
+            Label {
+                label: bind template.surname;
+            }
+            Label {
+                label: bind template.patronymic;
+            }
+        }
+
+        Revealer revealer {
+            reveal-child: false;
+            transition-type: slide_up;
+
+            Box {
+                orientation: vertical;
+                spacing: 10;
+
+                $NamedLabel {
+                    name: "Номер телефона: ";
+                    text: bind template.number;
+                }
+                $NamedLabel {
+                    name: "Почта: ";
+                    text: bind template.email;
+                }
+                $NamedLabel {
+                    name: "Телеграм ID: ";
+                    text: bind template.telegram_id;
+                }
+                $NamedLabel {
+                    name: "Обо мне: ";
+                    text: bind template.about_me;
+                }
+            }
+        }
+    }
+}
