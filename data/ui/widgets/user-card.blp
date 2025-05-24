@@ -4,12 +4,13 @@ using Adw 1;
 template $UserCard : Gtk.Box {
     vexpand: true;
     hexpand: true;
+    styles ["cut-card"]
 
     Box {
         orientation: vertical;
         spacing: 10;
 
-        ToggleButton {
+        ToggleButton toggle_button {
             hexpand: true;
             group: bind template.group;
 
@@ -39,24 +40,39 @@ template $UserCard : Gtk.Box {
 
             Box {
                 orientation: vertical;
-                spacing: 10;
-                styles["user-card-box"]
+                spacing: 20;
 
-                $NamedLabel {
-                    name: "Номер телефона: ";
-                    text: bind template.number;
+                Box {
+                    orientation: vertical;
+                    spacing: 10;
+                    styles["user-card-box"]
+
+                    $NamedLabel {
+                        name: "Номер телефона: ";
+                        text: bind template.number;
+                    }
+                    $NamedLabel {
+                        name: "Почта: ";
+                        text: bind template.email;
+                    }
+                    $NamedLabel {
+                        name: "Телеграм ID: ";
+                        text: bind template.telegram_id;
+                    }
+                    $NamedLabel {
+                        name: "Обо мне: ";
+                        text: bind template.about_me;
+                    }
                 }
-                $NamedLabel {
-                    name: "Почта: ";
-                    text: bind template.email;
-                }
-                $NamedLabel {
-                    name: "Телеграм ID: ";
-                    text: bind template.telegram_id;
-                }
-                $NamedLabel {
-                    name: "Обо мне: ";
-                    text: bind template.about_me;
+                Box {
+                    Button {
+                        label: "Редактировать";
+                        clicked => $edit();
+                    }
+                    Button {
+                        label: "Удалить";
+                        clicked => $delete();
+                    }
                 }
             }
         }

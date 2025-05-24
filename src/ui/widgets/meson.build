@@ -7,3 +7,5 @@ sources += files(
 	'async-image.vala',
 	'named-label.vala'
 )
+
+subdir('dialogs')

@@ -1,3 +1,5 @@
+public static string? bearer_token;
+
 public class Request : GLib.Object {
 	private Soup.Message _msg;
 	public Soup.Message msg {
@@ -32,7 +34,6 @@ public class Request : GLib.Object {
 	Gee.HashMap<string, string>? pars;
 	Soup.Multipart? form_data;
 	public GLib.Cancellable cancellable;
-    string? token;
 
 	Network.ExtraData? extra_data;
 	weak Gtk.Widget? ctx;
@@ -108,12 +109,6 @@ public class Request : GLib.Object {
 		use_auth = true;
 		return this;
 	}
-
-	public Request with_token(string token) {
-        use_auth = true;
-        this.token = token;
-        return this;
-    }
 
 	public Request with_param (string name, string val) {
 		if (pars == null)
@@ -200,7 +195,7 @@ public class Request : GLib.Object {
 
 		if (use_auth) {
 			msg.request_headers.remove("Authorization");
-			msg.request_headers.append("Authorization", @"Bearer $(token)");
+			msg.request_headers.append("Authorization", @"Bearer $(bearer_token)");
 		}
 
 		if (!cache) msg.disable_feature(typeof(Soup.Cache));

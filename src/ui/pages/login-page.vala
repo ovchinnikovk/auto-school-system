@@ -7,6 +7,7 @@ public class LoginPage : Adw.Bin {
         get { return password_entry.get_text(); }
     }
     public string? error { get; set; }
+
     [GtkChild]
     private unowned Gtk.Entry email_entry;
     [GtkChild]
@@ -22,7 +23,7 @@ public class LoginPage : Adw.Bin {
             Timeout.add_once(3000, reveal_error);
         });
 
-        UserRepository.instance.user_loaded.connect(() => {
+        users.user_loaded.connect(() => {
             stack.visible_child_name = "main_page";
         });
     }

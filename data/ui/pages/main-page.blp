@@ -14,6 +14,7 @@ template $MainPage : Adw.Bin {
                 vexpand: true;
 
                 Stack button_stack {
+                    styles ["role-button-stack"]
                     StackPage {
                         name: "ROLE_STUDENT";
                         child: $StudentPageButtons {};
@@ -40,6 +41,10 @@ template $MainPage : Adw.Bin {
                     StackPage {
                         name: "all_users_page";
                         child: $AllUsersPage {};
+                    }
+                    StackPage {
+                        name: "add_user_page";
+                        child: $AddUserPage {};
                     }
                 }
             };

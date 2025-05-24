@@ -1,0 +1,43 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $AddUserPage : Gtk.Box {
+    Box {
+        orientation: vertical;
+        vexpand: true;
+        hexpand: true;
+        valign: center;
+        halign: center;
+        spacing: 20;
+        styles["add-user-box"]
+
+        Box {
+            orientation: vertical;
+            spacing: 15;
+
+            Entry name_entry {
+                placeholder-text: "Имя";
+            }
+            Entry surname_entry {
+                placeholder-text: "Фамилия";
+            }
+            Entry patronimyc_entry {
+                placeholder-text: "Отчество";
+            }
+            Entry email_entry {
+                placeholder-text: "Почта";
+            }
+            Entry telegram_id_entry {
+                placeholder-text: "Телеграм ID";
+            }
+            PasswordEntry password_entry {
+                placeholder-text: "Пароль";
+            }
+        }
+
+        Button {
+            label: "Добавить";
+            clicked => $add_user();
+        }
+    }
+}

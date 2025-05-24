@@ -24,6 +24,23 @@ public class User : Object
     public Car? car { get; set; }
     public string? image { get; set; }
     public Category? category { get; set; }
+
+    public User.common(
+        string name,
+        string surname,
+        string patronymic,
+        string email,
+        string? telegram_id,
+        string? role = "ROLE_TEACHER")
+    {
+        this.name = name;
+        this.surname = surname;
+        patronym = patronymic;
+        this.email = email;
+        telegramId = telegram_id;
+        roles.add("ROLE_USER");
+        roles.add(role);
+    }
 }
 
 public class Answer : Object

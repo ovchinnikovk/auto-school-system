@@ -14,6 +14,31 @@ error-label {
 
 .user-card-box {
     border: 1px solid grey;
-	padding: 5px;
+	padding: 10px;
 	border-radius: 20px;
+}
+
+.cut-card {
+    min-width: 600px;
+}
+
+.users-scrolled-window {
+    padding: 64px;
+}
+
+.role-button-stack {
+    padding: 15px;
+}
+
+.add-user-dialog {
+    min-width: 150px;
+    min-height: 150px;
+}
+
+.add-user-dialog > label {
+    padding: 10px;
+}
+
+.add-user-box {
+    min-width: 400px;
 }

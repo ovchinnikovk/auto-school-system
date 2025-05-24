@@ -19,6 +19,7 @@ public class MainWindow : Adw.ApplicationWindow {
         typeof(MainPage).ensure();
         typeof(LoginPage).ensure();
         typeof(AllUsersPage).ensure();
+        typeof(AddUserPage).ensure();
 
         typeof(StudentPageButtons).ensure();
         typeof(AdministratorPageButtons).ensure();
@@ -27,5 +28,6 @@ public class MainWindow : Adw.ApplicationWindow {
         typeof(AsyncImage).ensure();
         typeof(UserCard).ensure();
         typeof(NamedLabel).ensure();
+        typeof(AddUserDialog).ensure();
     }
 }

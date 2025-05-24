@@ -1,5 +1,6 @@
 public static Network network;
 public static Settings settings;
+public static UserRepository users;
 
 public class AutoSchule : Adw.Application {
     public MainWindow main_window;
@@ -18,8 +19,8 @@ public class AutoSchule : Adw.Application {
         application_id = "org.gtk.AutoSchoolSystem";
         flags = ApplicationFlags.DEFAULT_FLAGS;
         settings = new Settings(application_id);
-        message(settings.get_string("host"));
         network = new Network.with_base_url(settings.get_string("host"));
+        users = new UserRepository();
     }
 
     public override void activate() {

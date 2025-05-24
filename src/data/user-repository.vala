@@ -1,14 +1,4 @@
 public class UserRepository : Object {
-    private static UserRepository _instance;
-    public static UserRepository instance {
-        get {
-            if (_instance == null)
-                _instance = new UserRepository();
-
-            return _instance;
-        }
-    }
-
     private User? _user;
     public User? user {
         get { return _user; }

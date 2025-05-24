@@ -8,9 +8,10 @@ template $AllUsersPage : Adw.Bin {
     ScrolledWindow {
         hexpand: true;
         vexpand: true;
-        valign: center;
+        valign: start;
         hscrollbar-policy: never;
         propagate-natural-height: true;
+        styles["users-scrolled-window"]
 
         Box cards_box {
             hexpand: true;

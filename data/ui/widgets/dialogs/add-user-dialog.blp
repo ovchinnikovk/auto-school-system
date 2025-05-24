@@ -1,0 +1,14 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $AddUserDialog : Adw.Dialog {
+    Adw.ToolbarView {
+        styles["add-user-dialog"]
+        [top]
+        Adw.HeaderBar {}
+
+        Label {
+            label: "Пользователь успешно добавлен";
+        }
+    }
+}

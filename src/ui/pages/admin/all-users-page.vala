@@ -17,6 +17,7 @@ public class AllUsersPage : Adw.Bin {
 
         foreach (var user in users) {
             var card = new UserCard.with_data(
+                user.id,
                 user.name,
                 user.surname,
                 user.patronym,
@@ -25,6 +26,9 @@ public class AllUsersPage : Adw.Bin {
                 user.telegramId,
                 user.aboutMe
             );
+            card.user_deleted.connect(() => {
+                load_content.begin();
+            });
             card.group = group_button;
             cards_box.append(card);
         }

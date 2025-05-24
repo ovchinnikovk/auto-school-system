@@ -6,3 +6,5 @@ blueprints += files(
     'user-card.blp',
     'named-label.blp'
 )
+
+subdir('dialogs')
